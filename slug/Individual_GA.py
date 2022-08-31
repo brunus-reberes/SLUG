@@ -156,8 +156,10 @@ class Individual_GA:
 
 
 	def clone(self):
-		
-		return deepcopy(self)
+		tmp = Individual_GA(self.probabilities, self.GP_params, self.metrics, self.classifier)
+		tmp.create()
+		return tmp
+		#return deepcopy(self)
 
 
 
