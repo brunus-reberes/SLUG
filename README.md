@@ -66,6 +66,3 @@ How to edit this implementation:
 Reference:
     Poli, R., Langdon, W.B., McPhee, N.F.: A Field Guide to Genetic Programming. Lulu Enterprises, UK Ltd (2008)
     
-<a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo = NMVRodrigues/SLUG"/>
-</a>
