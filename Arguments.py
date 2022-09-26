@@ -10,8 +10,8 @@ from sys import argv
 
 
 # Classifier to be used
-# Classifiers available [Gp, DT, RF]
-CLASSIFIER = "GSGP"
+# Classifiers available [Gp, DT, RF, M4GP, GSGP]
+CLASSIFIER = "M4GP"
 
 # Operators to be used by the models
 # Only these operators are available.
@@ -31,7 +31,7 @@ POPULATION_SIZE_GP = 100
 POPULATION_SIZE_GA = 100
 
 # Maximum number of iterations
-MAX_GENERATION_GP = 30  
+MAX_GENERATION_GP = 30
 
 # Maximum number of iterations
 MAX_GENERATION_GA = 50

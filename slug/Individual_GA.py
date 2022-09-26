@@ -12,6 +12,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import fbeta_score, cohen_kappa_score, roc_auc_score
 from .STGP import STGP
+from .M4GP import M4GP
 from copy import deepcopy
 from .MultiDT import MultiDT
 from .GSGP import GSGP_Indiv
@@ -57,6 +58,8 @@ class Individual_GA:
 			self.model = RandomForestClassifier(random_state=42) 
 		elif self.classifier == "SVM":
 			self.model =  SVC(random_state=42) 
+		elif self.classifier == "M4GP":
+			self.model = M4GP()
 		elif self.classifier == "MDT":
 			self.model = MultiDT()
 		elif self.classifier == "GSGP":
@@ -73,6 +76,8 @@ class Individual_GA:
 			return RandomForestClassifier(random_state=42) 
 		elif self.classifier == "SVM":
 			self.model =  SVC(random_state=42)
+		elif self.classifier == "M4GP":
+			self.model = M4GP()
 
 	def copy(self, model, probabilities):
 		self.model = model
