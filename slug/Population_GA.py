@@ -172,7 +172,7 @@ class Population_GA:
 
 		# Sort the population from best to worse
 		self.population.sort(reverse=True)
-		#print(min(self.population[-1].fitness), max(self.population[0].fitness))   # *** J: as DT parece estagnar bem depressa na accuracy maxima da geracao mas a minima vai subido hmmm
+		#print(self.population[-1].fitness, self.population[0].fitness)   # *** J: as DT parece estagnar bem depressa na accuracy maxima da geracao mas a minima vai subido hmmm
 
 
 		# Update best individual
