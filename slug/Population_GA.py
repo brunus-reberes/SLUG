@@ -170,14 +170,9 @@ class Population_GA:
 			[ ind.fit(self.Tr_x, self.Tr_y, self.Te_x, self.Te_y) for ind in self.population]
 			[ ind.getFitness() for ind in self.population ]
 
-		fit = []
-		for ind in self.population:
-			fit.append(ind.fitness)
-		#print(min(fit), max(fit)) # *** J: as DT parece estagnar bem depressa na accuracy maxima da geracao mas a minima vai subido hmmm
-
-
 		# Sort the population from best to worse
 		self.population.sort(reverse=True)
+		#print(min(self.population[-1].fitness), max(self.population[0].fitness))   # *** J: as DT parece estagnar bem depressa na accuracy maxima da geracao mas a minima vai subido hmmm
 
 
 		# Update best individual
