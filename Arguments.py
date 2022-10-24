@@ -11,15 +11,16 @@ from sys import argv
 
 # Classifier to be used
 # Classifiers available [Gp, DT, RF, M4GP, GSGP]
-CLASSIFIER = "M4GP"
+CLASSIFIER = "GP"
 
 # Operators to be used by the models
 # Only these operators are available.
-OPERATORS = [("+",2),("-",2),("*",2),("/",2),("log",1), ("sqrt", 1)]
+OPERATORS = [("+",2),("-",2),("*",2),("/",2)]
+#OPERATORS = [("+",2),("-",2),("*",2),("/",2),("log",1), ("sqrt", 1)]
 
 # Metrics used to evaluate the model
-#METRICS = ["Acc", "Kappa", "F2", "AUC"]
-METRICS = ["Acc"]
+METRICS = ["Acc", "Kappa", "F2", "AUC"]
+#METRICS = ["Acc"]
 
 # Initial Maximum depth
 MAX_DEPTH = 6
@@ -52,7 +53,7 @@ SHUFFLE = True
 LIMIT_DEPTH=17
 
 # Number of runs 
-RUNS = 100
+RUNS = 30
 
 # Verbose
 VERBOSE = True
@@ -61,10 +62,10 @@ VERBOSE = True
 THREADS = 1
 
 
-DATASETS_DIR = "gametes_data/"
+DATASETS_DIR = "datasets/"
 OUTPUT_DIR = "results/"
 
-DATASETS = ["2w_1000a_0.4her.csv"]
+DATASETS = ["2w_10a_0.1her.csv"]
 
 OUTPUT = "Classification"
 
