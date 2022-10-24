@@ -186,6 +186,19 @@ class Population_GA:
 
 		# Generating Next Generation
 		newPopulation = []
+
+		# Creating new individual with best features form last generation
+		features = self.bestIndividual.getBestFeatures()
+		probs = []
+		for column in self.terminals:
+			if column in features:
+				probs.append(1)
+			else:
+				probs.append(0)
+		ind = Individual_GA(probs, self.GP_params, self.metrics, self.classifier)
+		ind.create()
+		self.population.append(ind)
+
 		#newPopulation.extend(getElite(self.population, self.elitism_size))
 		while len(newPopulation) < self.population_size:
 			offspring = GAoffspring(self.population)
