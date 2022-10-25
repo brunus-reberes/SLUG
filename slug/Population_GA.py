@@ -182,8 +182,15 @@ class Population_GA:
 		# Generating Next Generation
 		newPopulation = []
 
+
+		#newPopulation.extend(getElite(self.population, self.elitism_size))
+		while len(newPopulation) < self.population_size:
+			offspring = GAoffspring(self.population)
+			newPopulation.extend(offspring)
+		self.population = newPopulation[:self.population_size]
+
 		# Creating new individual with best features form last generation
-		features = self.bestIndividual.getBestFeatures()
+		features = self.bestIndividual.model.getUsedFeaturesFromBestIndividual()
 		probs = []
 		for column in self.terminals:
 			if column in features:
@@ -194,17 +201,11 @@ class Population_GA:
 		ind.create()
 		self.population.append(ind)
 
-		#newPopulation.extend(getElite(self.population, self.elitism_size))
-		while len(newPopulation) < self.population_size:
-			offspring = GAoffspring(self.population)
-			newPopulation.extend(offspring)
-		self.population = newPopulation[:self.population_size]
-
 
 		end = time.time()
 
 		# Debug
-		if self.verbose and self.currentGeneration%5==0:
+		if self.verbose:
 			if self.classifier == 'GP':
 				if not self.Te_x is None:
 					print("> Gen #"+str(self.currentGeneration)+":   Tr-Acc: "+ "%.6f" %self.bestIndividual.model.getBestIndividual().getAccuracy(self.Tr_x, self.Tr_y)+" // Te-Acc: "+ "%.6f" %self.bestIndividual.model.getBestIndividual().getAccuracy(self.Te_x, self.Te_y) +

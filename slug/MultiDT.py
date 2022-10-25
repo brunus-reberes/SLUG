@@ -1,6 +1,7 @@
 from .Population import Population
 from sklearn.tree import DecisionTreeClassifier
 import random
+import pandas as pd
 
 # By using this file, you are agreeing to this product's EULA
 #
@@ -78,7 +79,7 @@ class MultiDT:
 				self.best_fitness = fitness 
 				self.best_features = tree_data.columns
 				#print(f"New best tree, fitness {self.best_fitness}, num_features {len(self.best_features)}")
-
+		
 
 	def predict(self, dataset):
 		'''
@@ -95,6 +96,18 @@ class MultiDT:
 		self.checkIfTrained()
 
 		return self.best
+
+	def getUsedFeaturesFromBestIndividual(self):
+		"""Filters used features from all features consume by the best individual.
+		Returns list used features.
+		"""
+		print(f"features - {len(self.best_features)}")
+		used_features = []
+		for feature, importance in zip(self.best_features, self.best.feature_importances_):
+			if importance > 0:
+				used_features.append(feature)
+		print(f"used_features - {len(used_features)}")
+		return used_features
 
 	def getAccuracyOverTime(self):
 		'''
