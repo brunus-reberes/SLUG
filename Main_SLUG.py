@@ -95,11 +95,14 @@ def run(r,dataset):
 		print("  > ID:", r)
 		print("  > Dataset:", dataset)
 		print("  > Final model:", model_str)
-		print("  > Training F2:", tr_f2[-1])
-		print("  > Test Acc:", te_acc[-1])
-		print("  > Test F2:", te_f2[-1])
-		print("  > Training Kappa:", tr_kappa[-1])
-		print("  > Test Kappa:", te_kappa[-1])
+		if "F2" in METRICS:
+			print("  > Training F2:", tr_f2[-1])
+			print("  > Test F2:", te_f2[-1])
+		if "ACC" in METRICS:
+			print("  > Test Acc:", te_acc[-1])
+		if "Kappa" in METRICS:
+			print("  > Training Kappa:", tr_kappa[-1])
+			print("  > Test Kappa:", te_kappa[-1])
 		print()
 
 	return (tr_acc,te_acc,

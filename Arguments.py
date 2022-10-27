@@ -10,12 +10,13 @@ from sys import argv
 
 
 # Classifier to be used
-# Classifiers available [Gp, DT, RF]
-CLASSIFIER = "GSGP"
+# Classifiers available [Gp, DT, RF, M4GP, GSGP, MDT]
+CLASSIFIER = "MDT"
 
 # Operators to be used by the models
 # Only these operators are available.
-OPERATORS = [("+",2),("-",2),("*",2),("/",2),("log",1), ("sqrt", 1)]
+OPERATORS = [("+",2),("-",2),("*",2),("/",2)]
+#OPERATORS = [("+",2),("-",2),("*",2),("/",2),("log",1), ("sqrt", 1)]
 
 # Metrics used to evaluate the model
 #METRICS = ["Acc", "Kappa", "F2", "AUC"]
@@ -28,13 +29,13 @@ MAX_DEPTH = 6
 POPULATION_SIZE_GP = 100
 
 # Number of models in the GA population
-POPULATION_SIZE_GA = 100
+POPULATION_SIZE_GA = 10
 
 # Maximum number of iterations
-MAX_GENERATION_GP = 30  
+MAX_GENERATION_GP = 5
 
 # Maximum number of iterations
-MAX_GENERATION_GA = 50
+MAX_GENERATION_GA = 5
 
 # Fraction of the dataset to be used as training 
 TRAIN_FRACTION = 0.70
@@ -52,16 +53,16 @@ SHUFFLE = True
 LIMIT_DEPTH=17
 
 # Number of runs 
-RUNS = 100
+RUNS = 1
 
 # Verbose
 VERBOSE = True
 
 # Number of CPU Threads to be used
-THREADS = 1
+THREADS = 8
 
 
-DATASETS_DIR = "gametes_data/"
+DATASETS_DIR = "C:/Users/Trabalho/Documents/Git/gametes-datasets/gametes/"
 OUTPUT_DIR = "results/"
 
 DATASETS = ["2w_1000a_0.4her.csv"]
